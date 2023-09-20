@@ -37,7 +37,7 @@ mqtt:
   # BASIC parameters are required.
   BASIC:
     protocol: MQTT # @see com.dji.sample.component.mqtt.model.MqttProtocolEnum
-    host: 112.53.97.235
+    host: localhost
     port: 1883
     username: poilt
     password: poilt123
@@ -48,6 +48,6 @@ mqtt:
     inbound-topic: sys/product/+/status,thing/product/+/requests
   DRC:
     protocol: WS # @see com.dji.sample.component.mqtt.model.MqttProtocolEnum
-    host: 112.53.97.235
+    host: localhost
     port: 8083
     path: /mqtt
