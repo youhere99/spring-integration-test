@@ -1,0 +1,53 @@
+server:
+  port: 8111
+spring:
+  application:
+    name: spring-integration-test
+  datasource:
+    druid:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.1.30:3306/cloud_sample?useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: Password@123456
+      initial-size: 10
+      min-idle: 10
+      max-active: 20
+      max-wait: 60000
+
+  redis:
+    host: 192.168.1.47
+    port: 6379
+    database: 5
+    username: # if you enable
+    password: 123
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+
+  servlet:
+    multipart:
+      max-file-size: 2GB
+      max-request-size: 2GB
+
+mqtt:
+  # @see com.dji.sample.component.mqtt.model.MqttUseEnum
+  # BASIC parameters are required.
+  BASIC:
+    protocol: MQTT # @see com.dji.sample.component.mqtt.model.MqttProtocolEnum
+    host: 112.53.97.235
+    port: 1883
+    username: poilt
+    password: poilt123
+    client-id: HYKJ12
+    # If the protocol is ws/wss, this value is required.
+    path:
+    # Topics that need to be subscribed when initially connecting to mqtt, multiple topics are divided by ",".
+    inbound-topic: sys/product/+/status,thing/product/+/requests
+  DRC:
+    protocol: WS # @see com.dji.sample.component.mqtt.model.MqttProtocolEnum
+    host: 112.53.97.235
+    port: 8083
+    path: /mqtt
